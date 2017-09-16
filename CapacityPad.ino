@@ -20,7 +20,7 @@ CapValue VALUES[] = {CapValue(), CapValue(), CapValue(), CapValue(), CapValue(),
 bool LAST[] = {false, false, false, false, false, false, false, false, false, false};
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
 }
 
 
@@ -40,8 +40,9 @@ void loop()
 {
   for(int i = 0; i < NUM_SENSORS; ++i) {
     if(checkCapValue(i)) {
-      if(!LAST[i])
+      if(!LAST[i]) {
         Serial.println(i);
+      }
       LAST[i] = true;
     } else {
         LAST[i] = false;
